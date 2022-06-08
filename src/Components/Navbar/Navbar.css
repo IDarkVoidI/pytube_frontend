@@ -1,0 +1,21 @@
+.navbar {
+    padding: 20px 40px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-links {
+    width: 300px;
+
+}
+
+
+h2 {
+    color: red;
+}
+
+a {
+    color: red;
+}
