@@ -1,39 +1,18 @@
-import React, { useEffect, useId, useState } from 'react'
+import React from 'react'
 import './App.css';
 import { Routes, Route } from 'react-router-dom'
+import 'react-loading-skeleton/dist/skeleton.css'
+import Home from './Pages/Home/Home';
+import Channel from './Pages/Channel/Channel';
+import SingleChannel from './Pages/SingleChannel/SingleChannel';
 
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const [data, setData] = useState([]);
-
-  const [loading, setLoading] = useState(false)
-
-  const id = useId()
-
-  const handleChangeInput = (event) => {
-    console.log(event.target.value);
-    setSearchTerm(event.target.value)
-  }
-
-  const filteredData = data.filter(channel => channel.title.toLowerCase().includes(searchTerm.toLocaleLowerCase()));
-
-  const fetchChannels = async () => {
-    setLoading(true)
-    const response = await fetch("http://localhost:8000/api/channel");
-    const result = await response.json();
-    setData(result);
-    setLoading(false)
-  };
-
-  useEffect(() => {
-    fetchChannels()
-  }, []);
-
   return (
     <Routes>
       <Route path='/' element={<Home />} />
+      <Route path='/channels' element={<Channel />} />
+      <Route path='/channels' ><Route path=':id' element={<SingleChannel />} /></Route>
     </Routes>
   );
 }
