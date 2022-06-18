@@ -1,6 +1,6 @@
 import React from 'react'
 import './Navbar.css'
-
+import { Link } from 'react-router-dom'
 
 
 const Navbar = () => {
@@ -10,9 +10,9 @@ const Navbar = () => {
                 <h2>PyTube</h2>
             </div>
             <div className='flex nav-links'>
-                <p><a href="#">Home</a></p>
-                <p><a href="#">Channels</a></p>
-                <p><a href="#">Videos</a></p>
+                <p><Link to={'/'}>Home</Link></p>
+                <p><Link to={'/channels'}>Channels</Link></p>
+                <p><Link to={'/videos'}>Videos</Link></p>
             </div>
         </nav>
     )

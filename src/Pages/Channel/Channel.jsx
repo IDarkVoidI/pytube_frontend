@@ -2,7 +2,7 @@ import React, { useState, useEffect, useId, } from 'react'
 import { SkeletonTheme } from 'react-loading-skeleton'
 import Navbar from '../../Components/Navbar/Navbar'
 import InputComponent from '../../Components/Input/Input'
-import ChannelCard from '../../Components/Cards/ChannelCard'
+import ChannelCard from '../../Components/Cards/Channel/ChannelCard'
 import { Link } from 'react-router-dom'
 
 
