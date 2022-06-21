@@ -1,38 +1,82 @@
+:root {
+  --main-bg-color: #112B3C;
+  --secondary-bg-color: #205375;
+  --orange: #F66B0E;
+  --orange-hover: #d05605;
+  --text-color: #EFEFEF;
+}
+
+body {
+  background-color: var(--main-bg-color);
+  box-sizing: border-box;
+}
+
 .App {
   margin: 0;
   padding: 0;
 }
 
+/* Typography */
+.h-1 {
+  color: var(--text-color);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.h-2 {
+  color: var(--text-color);
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.h-3 {
+  color: var(--text-color);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.text {
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  width: auto;
+}
+
+.small-text { 
+  color: var(--text-color);
+  font-size: 12px;
+}
+
+.link {
+  color: var(--orange);
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  transition-duration: 200ms;
+  transform-origin: left;
+}
+
+.link:hover {
+  color: var(--orange-hover);
+}
+
+/* containers */
+.container {
+  padding: 2% 4%;
+  height: 100vh;
+  margin: 0;
+}
+
 .flex {
   display: flex;
   align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.space-evenly {
   justify-content: space-evenly;
-}
-
-.container {
-  padding: 20px 2.5%;
-}
-
-hr {
-  background-color: red;
-  height: 2px;
-}
-
-body {
-  min-height: 100vh;
-  background-color: black;
-}
-
-p {
-  color: red;
-}
-
-
-h3 {
-  color: red;
-}
-
-
-label {
-  color: white;
 }
