@@ -1,21 +1,8 @@
 .navbar {
-    padding: 20px 40px;
-    background-color: var(--main-bg-color);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 1% 4%;
+    background-color: var(--secondary-bg-color);
 }
 
-.nav-links {
-    width: 300px;
-
-}
-
-
-h2 {
-    color: red;
-}
-
-a {
-    color: red;
+.navbar-links {
+    width: 250px;
 }

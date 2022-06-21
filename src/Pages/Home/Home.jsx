@@ -5,8 +5,6 @@ function Home() {
   return (
     <div>
       <Navbar />
-      <hr />
-
       <div className="container">
         <h1 className="h-1">Typography</h1>
         <h2 className="h-2">Typography</h2>
