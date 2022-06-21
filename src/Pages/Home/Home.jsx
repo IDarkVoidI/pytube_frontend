@@ -4,10 +4,9 @@ import Navbar from '../../Components/Navbar/Navbar'
 
 function Home() {
     return (
-        <div className='container'>
+        <div>
             <Navbar />
-            <hr />
-            <div>
+            <div className='container'>
                 <h1 className='h-1'>Typography</h1>
                 <h2 className='h-2'>Typography</h2>
                 <h3 className='h-3'>Typography</h3>
