@@ -4,6 +4,7 @@ import Input from "../../Components/Input/Input";
 import Lottie from "react-lottie";
 import animation from "../../lib/animation.json";
 import "./Home.css";
+import { BsSearch } from "react-icons/bs";
 
 const animationOptions = {
   loop: true,
@@ -31,7 +32,15 @@ function Home() {
               <h3 className="h-2" style={{ margin: "0 0 10px 0", padding: "5px 0", fontSize: "2em" }}>
                 Search for tutorials
               </h3>
-              <Input />
+              <div className="hero-section-input--container flex center-items">
+                <BsSearch />
+                <Input
+                  type="search"
+                  onChange={() => console.log("searching")}
+                  placeholder="Django..."
+                  className={"hero-search-input"}
+                />
+              </div>
             </div>
           </div>
         </div>

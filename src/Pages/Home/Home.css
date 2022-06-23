@@ -10,3 +10,26 @@
     align-items: center;
     justify-content: center;
 }
+
+.hero-section-input--container{
+    background-color: var(--text-color);
+    width: 450px;
+    height: 50px;
+    border-radius: 50px;
+    padding-left: 10px;
+    transition-duration: 200ms;
+}
+
+.hero-search-input {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    border: none;
+    border-radius: 0 50px 50px 0;
+    background-color: var(--text-color);
+    padding-left: 10px;
+}
+
+.hero-search-input:focus {
+    outline: none;
+}
