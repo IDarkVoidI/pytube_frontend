@@ -1,19 +1,35 @@
 import React from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
+import Input from '../../Components/Input/Input'
+import Lottie from 'react-lottie'
+import animation from '../../lib/animation.json'
+import './Home.css'
 
+const animationOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animation,
+    renderSettings:
+        { preserveAspectRatio: "xMidYMid slice" }
+}
 
 function Home() {
     return (
         <div>
             <Navbar />
             <div className='container'>
-                <h1 className='h-1'>Typography</h1>
-                <h2 className='h-2'>Typography</h2>
-                <h3 className='h-3'>Typography</h3>
-                <p className='text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, ex et accusantium minus maiores cupiditate iste consequatur reiciendis illo vitae delectus distinctio iure fugiat pariatur minima ad excepturi enim necessitatibus porro? Voluptatibus iusto recusandae doloremque earum incidunt, cum excepturi deserunt quisquam non necessitatibus, nulla impedit similique dicta, quidem unde quasi quia vel? A sequi, quia minus hic ad sit voluptatibus officia quam est quaerat non vero esse, aut, nam odit vitae saepe facere molestias obcaecati similique expedita veniam. Officia quis obcaecati hic cum id, sapiente eum. Laudantium fugiat at, voluptas, expedita, quos qui eligendi corporis quis dolorem molestiae dignissimos eos.</p>
-                <small className='small-text'>Typography</small>
-                <br />
-                <a className='link' href='/'>Typography</a>
+                <div className='hero'>
+                    <div className='hero-container flex center-items'>
+                        <div style={{ width: '45%' }}>
+                            <Lottie width={'100%'} options={animationOptions} />
+                        </div>
+                        <div>
+                            <h1 className='h-1' style={{ margin: 0, fontSize: '3rem' }}>Skill Repository</h1>
+                            <h3 className='h-2' style={{ margin: '0 0 10px 0', padding: '5px 0' }}>Search for tutorials</h3>
+                            <Input />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

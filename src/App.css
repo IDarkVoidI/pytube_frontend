@@ -6,6 +6,7 @@
   --orange-hover: #d05605;
 }
 
+
 body {
   background-color: var(--main-bg-color);
   box-sizing: border-box;
@@ -13,10 +14,12 @@ body {
   padding: 0;
 }
 
+
 .App {
   margin: 0;
   padding: 0;
 }
+
 
 /* Typography */
 .h-1 {
@@ -25,17 +28,20 @@ body {
   font-weight: 600;
 }
 
+
 .h-2 {
   color: var(--text-color);
   font-size: 22px;
   font-weight: 500;
 }
 
+
 .h-3 {
   color: var(--text-color);
   font-size: 20px;
   font-weight: 500;
 }
+
 
 .text {
   color: var(--text-color);
@@ -72,6 +78,9 @@ body {
 
 .flex {
   display: flex;
+}
+
+.center-items {
   align-items: center;
 }
 

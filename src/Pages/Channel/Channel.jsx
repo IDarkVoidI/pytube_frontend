@@ -42,11 +42,7 @@ function Channel() {
             duration={4}>
             < div className="App" >
                 <Navbar />
-                <hr />
-                <div className='container'>
-                    <InputComponent id={id} type='text' name="Search" onchange={handleChangeInput} />
-                </div>
-                <div className={'container'}>
+                <div className={'container flex space-evenly'}>
                     {searchTerm.length === 0 ?
                         data.map((channel) => <Link to={String(channel.id)}><ChannelCard loading={loading} img={channel.avatar} title={channel.title} key={channel.id} description={channel.description} /></Link>)
                         : filteredData.map((channel) => <Link to={String(channel.id)}><ChannelCard loading={loading} img={channel.avatar} title={channel.title} key={channel.id} description={channel.description} /></Link>)}
