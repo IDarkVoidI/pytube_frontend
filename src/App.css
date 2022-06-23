@@ -70,6 +70,9 @@ body {
 
 .flex {
   display: flex;
+}
+
+.center-items {
   align-items: center;
 }
 

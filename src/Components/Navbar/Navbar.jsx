@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="flex space-between navbar">
+    <nav className="flex space-between navbar center-items">
       <div>
         <h2 className="h-1">PyTube</h2>
       </div>
