@@ -1,8 +1,8 @@
 import React from 'react'
 
-const InputComponent = (props) => {
+const InputComponent = ({ className, name, id, type, onChange, placeholder }) => {
     return (
-        <input name={props.name} id={props.id} type={props.type} onChange={props.onchange} />
+        <input className={className} name={name} id={id} type={type} onChange={onChange} placeholder={placeholder} />
     )
 }
 
