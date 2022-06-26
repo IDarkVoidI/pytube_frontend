@@ -52,7 +52,7 @@ function Home() {
                 <Input
                   type="search"
                   onChange={handleSearchChange}
-                  placeholder="Django..."
+                  placeholder={"Django..."}
                   className={"hero-search-input"}
                 />
               </form>
