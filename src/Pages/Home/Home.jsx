@@ -1,13 +1,13 @@
 import React from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
-import Input from '../../Components/Input/Input'
 import Lottie from 'react-lottie'
 import animation from '../../lib/animation.json'
 import './Home.css'
 import { BsSearch as SearchIcon } from 'react-icons/bs'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-
+import { useId } from 'react'
+import { Heading, Input } from '@chakra-ui/react'
 
 const animationOptions = {
     loop: true,
@@ -21,6 +21,10 @@ const tags = ['React', 'Django', 'Python', 'Java', 'JavaScript']
 
 function Home() {
     const [placeholder, setPlaceholder] = useState("")
+    const [searchWord, setSearchWord] = useState("")
+    const [searchResults, setSearchResults] = useState({ channel: [], video: [] })
+    const [isOpen, setOpen] = useState(false)
+    const id = useId()
 
     const handlePlaceholder = () => {
         const rand = Math.floor(Math.random() * tags.length)
@@ -31,29 +35,22 @@ function Home() {
         handlePlaceholder()
     }, [])
 
+    const fetchSearchResults = async () => {
+        const res = await axios.get(`http://localhost:8000/api/content/search?query=${searchWord}`)
+        setSearchResults(res.data)
+    }
 
-    const [filteredData, setFilteredData] = useState([]);
-    const [wordEntered, setWordEntered] = useState("");
-
-    const handleFilter = (event) => {
-        const searchWord = event.target.value;
-        setWordEntered(searchWord);
-        const newFilter = filteredData.filter((value) => {
-            return value.title.toLowerCase().includes(searchWord.toLowerCase());
-        });
-
-        if (searchWord === "") {
-            setFilteredData([]);
+    useEffect(() => {
+        if (searchWord) {
+            setOpen(true)
+            fetchSearchResults()
         } else {
-            setFilteredData(newFilter);
+            setOpen(false)
         }
-    }
+    }, [searchWord])
 
-    const handleSubmit = async (event) => {
-        event.preventDefault()
-        const res = await axios.get(`http://localhost:8000/api/video?query=${wordEntered}`)
-        return res.data
-    }
+    const handleChange = (event) => setSearchWord(event.target.value)
+
 
     return (
         <div>
@@ -65,23 +62,27 @@ function Home() {
                             <Lottie width={'100%'} options={animationOptions} />
                         </div>
                         <div>
-                            <h1 className='h-1' style={{ margin: 0, fontSize: '3rem' }}>Skill Repository</h1>
+                            {/* <h1 className='h-1' style={{ margin: 0, fontSize: '3rem' }}>Skill Repository</h1> */}
+                            <Heading>Skill Repository</Heading>
                             <h3 className='h-2' style={{ margin: '0 0 10px 0', padding: '5px 0' }}>Search for tutorials</h3>
-                            <form onSubmit={handleSubmit} className='hero-section-input--container flex center-items'>
+                            <form className='hero-section-input--container flex center-items'>
                                 <SearchIcon />
-                                <Input type="search" onChange={handleFilter} placeholder={placeholder + '...'} className={"hero-search-input"} />
-                                {filteredData.length != 0 && (
-                                    <div className="dataResult">
-                                        {filteredData.slice(0, 15).map((value, key) => {
-                                            return (
-                                                <a className="dataItem" target="_blank">
-                                                    <p>{value.title} </p>
-                                                </a>
-                                            );
-                                        })}
-                                    </div>
-                                )}
+                                <Input type="search" onChange={handleChange} placeholder={placeholder + '...'} borderRadius='50px' height={'100%'} color={'app.main_bg'} />
                             </form>
+                            {isOpen ? (<div style={{ backgroundColor: "white", padding: "10px 10px", marginTop: "10px" }}>
+                                <ul>
+                                    {searchResults.video.map((i) => (
+                                        <li key={id}>
+                                            <a href={`/videos/${i.id}`}>{i.title}</a>
+                                        </li>
+                                    ))}
+                                    {searchResults.channel.map((i) => (
+                                        <li key={id}>
+                                            <a href={`/channels/${i.id}`}>{i.title}</a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>) : ("")}
                         </div>
                     </div>
                 </div>

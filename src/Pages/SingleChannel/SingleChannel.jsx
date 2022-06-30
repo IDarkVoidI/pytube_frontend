@@ -20,7 +20,8 @@ function SingleChannel() {
     console.log(channel);
 
     return (
-        <Navbar />
+        <div><Navbar />
+            <p>Wrong Page hehe</p></div>
     )
 }
 

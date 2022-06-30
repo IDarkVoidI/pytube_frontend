@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
 import VideoCard from '../../Components/Cards/Video/VideoCard'
 
+
 const Video = () => {
     const [videos, setVideos] = useState([])
 
@@ -15,7 +16,7 @@ const Video = () => {
     useEffect(() => {
         fetchVideos()
     }, [])
-
+    console.log(videos);
     return (
         <div>
             <Navbar />

@@ -1,18 +1,20 @@
 import React from 'react'
 import './Navbar.css'
-import { Link } from 'react-router-dom'
+import { Link } from '@chakra-ui/react'
+import { Link as ReachLink } from 'react-router-dom'
+import { Heading } from '@chakra-ui/react'
 
 
 const Navbar = () => {
     return (
         <nav className='flex space-between navbar center-items'>
             <div>
-                <h2 className='h-1'>PyTube</h2>
+                <Heading as='h2' size='lg'>CyberX</Heading>
             </div>
             <div className='flex space-evenly navbar-links'>
-                <p><Link to={'/'} className='link'>Home</Link></p>
-                <p><Link to={'/channels'} className='link'>Channels</Link></p>
-                <p><Link to={'/videos'} className='link'>Videos</Link></p>
+                <Link to={'/'} as={ReachLink}>Home</Link>
+                <Link to={'/channels'} as={ReachLink}>Channels</Link>
+                <Link to={'/videos'} as={ReachLink}>Videos</Link>
             </div>
         </nav>
     )

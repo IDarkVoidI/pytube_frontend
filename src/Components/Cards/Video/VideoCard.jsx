@@ -1,19 +1,14 @@
 // video, title, channel, views, created_date, link
 import React from 'react'
+import { AspectRatio, Heading } from '@chakra-ui/react'
+
 
 const VideoCard = (props) => {
     return (
         <div>
-            <iframe mozallowfullscreen="mozallowfullscreen"
-                msallowfullscreen="msallowfullscreen"
-                oallowfullscreen="oallowfullscreen"
-                allow='fullscreen'
-                src={props.link}
-                width='350px'
-                height='200px'
-            />
-            <h2>{props.title}</h2>
-            <h3>{props.channel.title}</h3>
+            <AspectRatio maxW={'350px'} maxH={'200px'}><iframe src={props.link} allowFullScreen /></AspectRatio>
+            <Heading as='h2'>{props.title}</Heading>
+            <Heading as='h3'>{props.channel.title}</Heading>
         </div>
     )
 }

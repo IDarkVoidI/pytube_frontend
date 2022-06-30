@@ -3,7 +3,8 @@ import { SkeletonTheme } from 'react-loading-skeleton'
 import Navbar from '../../Components/Navbar/Navbar'
 import InputComponent from '../../Components/Input/Input'
 import ChannelCard from '../../Components/Cards/Channel/ChannelCard'
-import { Link } from 'react-router-dom'
+import { Link as ReachLink } from 'react-router-dom'
+import { Link } from '@chakra-ui/react'
 
 
 function Channel() {
@@ -40,12 +41,12 @@ function Channel() {
             highlightColor="#96c7ff"
             borderRadius="0.5rem"
             duration={4}>
-            < div className="App" >
+            <div className="App">
                 <Navbar />
-                <div className={'container flex space-evenly'}>
+                <div>
                     {searchTerm.length === 0 ?
-                        data.map((channel) => <Link to={String(channel.id)}><ChannelCard loading={loading} img={channel.avatar} title={channel.title} key={channel.id} description={channel.description} /></Link>)
-                        : filteredData.map((channel) => <Link to={String(channel.id)}><ChannelCard loading={loading} img={channel.avatar} title={channel.title} key={channel.id} description={channel.description} /></Link>)}
+                        data.map((channel) => <Link as={ReachLink} to={String(channel.id)}><ChannelCard loading={loading} img={channel.avatar} title={channel.title} key={channel.id} description={channel.description} /></Link>)
+                        : filteredData.map((channel) => <Link as={ReachLink} to={String(channel.id)}><ChannelCard loading={loading} img={channel.avatar} title={channel.title} key={channel.id} description={channel.description} /></Link>)}
                 </div>
             </div ></SkeletonTheme>
     )

@@ -7,17 +7,20 @@ import Channel from './Pages/Channel/Channel';
 import SingleChannel from './Pages/SingleChannel/SingleChannel';
 import Video from './Pages/Video/Video'
 import SingleVideo from './Pages/SingleVideo/SingleVideo';
-
+import { ChakraProvider } from '@chakra-ui/react'
+import { theme } from './lib/theme';
 
 function App() {
   return (
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/channels' element={<Channel />} />
-      <Route path='/videos' element={<Video />} />
-      <Route path='/channels' ><Route path=':id' element={<SingleChannel />} /></Route>
-      <Route path='/videos' ><Route path=':id' element={<SingleVideo />} /></Route>
-    </Routes>
+    <ChakraProvider theme={theme}>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/channels' element={<Channel />} />
+        <Route path='/videos' element={<Video />} />
+        <Route path='/channels' ><Route path=':id' element={<SingleChannel />} /></Route>
+        <Route path='/videos' ><Route path=':id' element={<SingleVideo />} /></Route>
+      </Routes>
+    </ChakraProvider>
   );
 }
 
