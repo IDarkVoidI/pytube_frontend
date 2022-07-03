@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useId, } from 'react'
-import { SkeletonTheme } from 'react-loading-skeleton'
 import Navbar from '../../Components/Navbar/Navbar'
 import InputComponent from '../../Components/Input/Input'
 import ChannelCard from '../../Components/Cards/Channel/ChannelCard'
-import { Link as ReachLink } from 'react-router-dom'
-import { Link } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
+import { HStack } from '@chakra-ui/react'
 
 
 function Channel() {
@@ -36,19 +35,18 @@ function Channel() {
     }, []);
 
     return (
-        <SkeletonTheme
-            baseColor="#5294e0"
-            highlightColor="#96c7ff"
-            borderRadius="0.5rem"
-            duration={4}>
-            <div className="App">
-                <Navbar />
-                <div>
-                    {searchTerm.length === 0 ?
-                        data.map((channel) => <Link as={ReachLink} to={String(channel.id)}><ChannelCard loading={loading} img={channel.avatar} title={channel.title} key={channel.id} description={channel.description} /></Link>)
-                        : filteredData.map((channel) => <Link as={ReachLink} to={String(channel.id)}><ChannelCard loading={loading} img={channel.avatar} title={channel.title} key={channel.id} description={channel.description} /></Link>)}
-                </div>
-            </div ></SkeletonTheme>
+        <div className="App">
+            <Navbar />
+            <div>
+                <HStack justifyContent={"space-evenly"} mt={16}>
+                    {data.map((channel) => (
+                        <Link to={String(channel.id)} key={channel.id}>
+                            <ChannelCard loading={loading} img={channel.avatar} title={channel.title} description={channel.description} />
+                        </Link>
+                    ))}
+                </HStack>
+            </div>
+        </div >
     )
 }
 

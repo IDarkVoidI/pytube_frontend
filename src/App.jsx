@@ -17,13 +17,15 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/channels' element={<Channel />} />
         <Route path='/videos' element={<Video />} />
-        <Route path='/channels' ><Route path=':id' element={<SingleChannel />} /></Route>
-        <Route path='/videos' ><Route path=':id' element={<SingleVideo />} /></Route>
+        <Route path='/channels'>
+          <Route path=':id' element={<SingleChannel />} />
+        </Route>
+        <Route path='/videos' >
+          <Route path=':id' element={<SingleVideo />} />
+        </Route>
       </Routes>
     </ChakraProvider>
   );
 }
 
 export default App;
-
-

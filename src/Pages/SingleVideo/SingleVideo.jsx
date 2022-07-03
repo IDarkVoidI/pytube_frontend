@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
 import { useParams } from 'react-router-dom';
-
+import VideoCard from '../../Components/Cards/Video/VideoCard';
 
 
 function SingleVideo() {
@@ -22,7 +22,7 @@ function SingleVideo() {
     return (
         <div>
             <Navbar />
-            <h1>{video.title}</h1>
+            <p>{video.title}</p>
         </div>
     )
 }
