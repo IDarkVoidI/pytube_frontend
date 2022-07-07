@@ -72,7 +72,7 @@ function Home() {
                                     <Input type="search" onChange={handleChange} placeholder={placeholder + '...'} />
                                 </InputGroup>
                             </form>
-                            {isOpen ? (<div style={{ backgroundColor: "blue", padding: "10px 10px", marginTop: "10px" }}>
+                            {isOpen ? (<div style={{ backgroundColor: "black", padding: "10px 10px", marginTop: "10px" }}>
                                 <ul>
                                     {searchResults.video.map((i) => (
                                         <li key={id}>

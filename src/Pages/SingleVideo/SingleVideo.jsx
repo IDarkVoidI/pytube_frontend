@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
 import { useParams } from 'react-router-dom';
-import VideoCard from '../../Components/Cards/Video/VideoCard';
+import { AspectRatio, Heading, Box } from '@chakra-ui/react'
 
 
 function SingleVideo() {
@@ -22,8 +22,11 @@ function SingleVideo() {
     return (
         <div>
             <Navbar />
-            <p>{video.title}</p>
-        </div>
+            <Box ml={150} mt={100}>
+                <AspectRatio maxW={'1720px'} maxH={'920px'}><iframe src={video.source_link} allowFullScreen title='video' /></AspectRatio>
+                <Heading maxW={'1720px'} size={'lg'} mt={5}>{video.title}</Heading>
+            </Box>
+        </div >
     )
 }
 

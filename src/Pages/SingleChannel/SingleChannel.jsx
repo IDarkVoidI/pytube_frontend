@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Navbar from '../../Components/Navbar/Navbar'
 import { Box, Heading, Avatar, Grid, Text, Stack } from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons'

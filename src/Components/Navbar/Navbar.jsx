@@ -1,8 +1,10 @@
 import React from 'react'
 import './Navbar.css'
-import { Link } from '@chakra-ui/react'
+import { Button, HStack, Link } from '@chakra-ui/react'
 import { Link as ReachLink } from 'react-router-dom'
 import { Heading } from '@chakra-ui/react'
+import SignUpModal from '../Modals/SignUpModal'
+import LoginModal from '../Modals/LoginModal'
 
 
 const Navbar = () => {
@@ -11,11 +13,16 @@ const Navbar = () => {
             <div>
                 <Heading as='h2' size='lg'>CyberX</Heading>
             </div>
-            <div className='flex space-evenly navbar-links'>
+            <HStack>
                 <Link to={'/'} as={ReachLink}>Home</Link>
                 <Link to={'/channels'} as={ReachLink}>Channels</Link>
                 <Link to={'/videos'} as={ReachLink}>Videos</Link>
-            </div>
+                <HStack>
+                    <LoginModal />
+                    <SignUpModal />
+
+                </HStack>
+            </HStack>
         </nav>
     )
 }
